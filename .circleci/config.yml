@@ -1,11 +1,12 @@
 version: 2.1
- 
+
 orbs:
   android: circleci/android@0.2.1
- 
+
 jobs:
   build:
-    executor: android/android
+    docker:
+      - image: circleci/openjdk:17-jdk-buster  # Use Java 17 here
     steps:
       - checkout
       - restore_cache:
