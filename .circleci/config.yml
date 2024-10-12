@@ -10,6 +10,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Set ANDROID_HOME
+          command: echo "export ANDROID_HOME=/opt/android/sdk" >> $BASH_ENV
+      - run:
           name: Create local.properties
           command: echo "sdk.dir=/opt/android/sdk" > ./local.properties  # Make sure to set SDK path
       - restore_cache:
@@ -28,7 +31,7 @@ jobs:
       - run:
           name: Run Build
           command: ./gradlew build
-      - store_artifacts: 
+      - store_artifacts:
           path: app/build/reports
           destination: reports
       - run:
@@ -36,6 +39,6 @@ jobs:
           command: ./gradlew lint test
       - store_test_results:
           path: app/build/test-results
-      - store_artifacts:  
+      - store_artifacts:
           path: app/build/outputs/apk/debug/
           destination: artifact-file
