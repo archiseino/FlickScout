@@ -9,6 +9,9 @@ jobs:
       - image: circleci/openjdk:17-jdk-buster  # Use Java 17 here
     steps:
       - checkout
+      - run:
+          name: Create local.properties
+          command: echo "sdk.dir=/opt/android/sdk" > ./local.properties  # Make sure to set SDK path
       - restore_cache:
           key: android-orb-v1-
       - run:
