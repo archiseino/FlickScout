@@ -6,9 +6,12 @@ orbs:
 jobs:
   build:
     docker:
-      - image: circleci/openjdk:17-jdk-buster  # Use Java 17 here
+      - image: circleci/android:api-34  # Use an image with API level 30
     steps:
       - checkout
+      - run:
+          name: Set ANDROID_HOME
+          command: echo 'export ANDROID_HOME=/opt/android/sdk' >> $BASH_ENV
       - run:
           name: Create local.properties
           command: echo "sdk.dir=/opt/android/sdk" > ./local.properties  # Make sure to set SDK path
