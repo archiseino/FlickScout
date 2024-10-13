@@ -14,7 +14,8 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class DetailFragment : Fragment() {
 
-    private lateinit var binding: FragmentDetailBinding
+    private var _binding: FragmentDetailBinding? = null
+    private val binding get() = _binding!!
     private val viewModel: DetailViewModel by viewModel()
     private val args: DetailFragmentArgs by navArgs()
 
@@ -22,7 +23,7 @@ class DetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentDetailBinding.inflate(inflater, container, false)
+        _binding = FragmentDetailBinding.inflate(inflater, container, false)
         val movie = args.movie
         setStatusFavorite(movie.isFavorite)
 
@@ -49,5 +50,10 @@ class DetailFragment : Fragment() {
             binding.fab.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_unfavorite))
         }
 
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

@@ -9,33 +9,34 @@ import coil.load
 import com.example.flickscout.core.databinding.ItemListMoviesBinding
 import com.example.flickscout.core.domain.model.Movie
 
-class MoviesAdapter(private val onItemClicked: (Movie) -> Unit): ListAdapter<Movie, MoviesAdapter.MoviesViewHolder>(DIFF_CALLBACK) {
+class MoviesAdapter(private val onItemClicked: (Movie) -> Unit) : ListAdapter<Movie, MoviesAdapter.MoviesViewHolder>(DIFF_CALLBACK) {
 
-    inner class MoviesViewHolder(private val binding : ItemListMoviesBinding) : RecyclerView.ViewHolder(binding.root){
+    class MoviesViewHolder(private val binding: ItemListMoviesBinding, private val onItemClicked: (Movie) -> Unit) : RecyclerView.ViewHolder(binding.root) {
         fun bind(movie: Movie) {
-            binding.ivItemImage.load("https://image.tmdb.org/t/p/w500"+ movie.posterPath)
+            binding.ivItemImage.load("https://image.tmdb.org/t/p/w500" + movie.posterPath)
             binding.tvItemTitle.text = movie.title
             binding.tvItemSubtitle.text = movie.overview
+
+            itemView.setOnClickListener {
+                onItemClicked(movie)
+            }
         }
     }
 
     override fun onBindViewHolder(holder: MoviesViewHolder, position: Int) {
-        val item = getItem(position)
-        item?.let { movie ->
-            holder.itemView.setOnClickListener {
-                onItemClicked(movie)
-            }
-            holder.bind(movie)
+        val movie = getItem(position)
+        movie?.let {
+            holder.bind(it)
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoviesViewHolder {
         val binding = ItemListMoviesBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return MoviesViewHolder(binding)
+        return MoviesViewHolder(binding, onItemClicked)
     }
 
-    companion object  {
-        val DIFF_CALLBACK : DiffUtil.ItemCallback<Movie> =
+    companion object {
+        val DIFF_CALLBACK: DiffUtil.ItemCallback<Movie> =
             object : DiffUtil.ItemCallback<Movie>() {
                 override fun areContentsTheSame(oldItem: Movie, newItem: Movie): Boolean {
                     return oldItem == newItem
@@ -44,8 +45,6 @@ class MoviesAdapter(private val onItemClicked: (Movie) -> Unit): ListAdapter<Mov
                 override fun areItemsTheSame(oldItem: Movie, newItem: Movie): Boolean {
                     return oldItem.id == newItem.id
                 }
-
             }
     }
-
 }
