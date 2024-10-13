@@ -51,6 +51,8 @@ android {
 dependencies {
     implementation(project(":core"))
 
+    implementation("androidx.navigation:navigation-dynamic-features-fragment:2.8.2")
+
     // Splash Screen
     implementation(libs.androidx.core.splashscreen)
     debugImplementation(libs.leakcanary.android)

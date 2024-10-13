@@ -1,4 +1,4 @@
-package com.example.flickscout.favorite
+package com.example.flickscout.favorite.ui
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

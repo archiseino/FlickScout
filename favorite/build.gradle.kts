@@ -1,6 +1,9 @@
 plugins {
     alias(libs.plugins.android.dynamic.feature)
     alias(libs.plugins.kotlin.android)
+    id("kotlin-parcelize")
+    id("androidx.navigation.safeargs")
+
 }
 android {
     namespace = "com.example.flickscout.favorite"
@@ -26,11 +29,20 @@ android {
             isMinifyEnabled = false
         }
     }
+
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
+
 dependencies {
-    implementation(project(":core"))
     implementation(project(":app"))
+    implementation(project(":core"))
+    implementation(libs.androidx.appcompat)
+    implementation(libs.material)
+    implementation(libs.androidx.activity)
+    implementation(libs.androidx.constraintlayout)
 
     debugImplementation(libs.leakcanary.android)
     testImplementation(libs.junit)
