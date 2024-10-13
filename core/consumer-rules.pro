@@ -44,6 +44,9 @@
     @retrofit2.http.* <methods>;
 }
 
+-keep class com.example.flickscout.core.data.source.remote.response.MoviesResponse { *; }
+-keep class com.example.flickscout.core.data.source.remote.response.ResultsItem { *; }
+
 # Ignore annotation used for build tooling.
 -dontwarn org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement
 
