@@ -10,6 +10,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Set Gradle Wrapper Permissions
+          command: chmod +x ./gradlew  # Add this step in CircleCI
+      - run:
           name: Build with Dynamic Features
           command: ./gradlew assembleDebug assembleDebugDynamicFeatures
       - run:
