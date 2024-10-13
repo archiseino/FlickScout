@@ -7,11 +7,14 @@ plugins {
     id("kotlin-parcelize")
 }
 
-val apiKeyPropertiesFile = rootProject.file("apiKey.properties")
-val apiKeyProperties = Properties()
+val apiKey : String? = System.getenv("API_KEY") ?: run {
+    val apiKeyPropertiesFile = rootProject.file("apiKey.properties")
+    val apiKeyProperties = Properties()
 
-if (apiKeyPropertiesFile.exists()) {
-    apiKeyProperties.load(apiKeyPropertiesFile.inputStream())
+    if (apiKeyPropertiesFile.exists()) {
+        apiKeyProperties.load(apiKeyPropertiesFile.inputStream())
+        apiKeyProperties.getProperty("API_KEY")
+    } else null
 }
 
 android {
@@ -21,7 +24,7 @@ android {
     defaultConfig {
         minSdk = 24
 
-        buildConfigField("String", "API_KEY", "\"${apiKeyProperties.getProperty("API_KEY")}\"")
+        buildConfigField("String", "API_KEY", "\"${apiKey}\"")
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -97,6 +100,9 @@ dependencies {
     // Kotlin Extensions and Coroutines support for Room
     implementation(libs.androidx.room.ktx)
 
+    implementation(libs.android.database.sqlcipher)
+    implementation(libs.androidx.sqlite.ktx)
+    debugImplementation(libs.leakcanary.android)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

@@ -35,7 +35,10 @@ android {
 dependencies {
     implementation(project(":core"))
     implementation(project(":app"))
+
+    debugImplementation(libs.leakcanary.android)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
 }

@@ -10,6 +10,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Build with Dynamic Features
+          command: ./gradlew assembleDebug assembleDebugDynamicFeatures
+      - run:
           name: Set ANDROID_HOME
           command: echo "export ANDROID_HOME=/opt/android/sdk" >> $BASH_ENV
       - run:

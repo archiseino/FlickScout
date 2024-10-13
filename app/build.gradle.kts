@@ -45,6 +45,7 @@ dependencies {
 
     // Splash Screen
     implementation(libs.androidx.core.splashscreen)
+    debugImplementation(libs.leakcanary.android)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
