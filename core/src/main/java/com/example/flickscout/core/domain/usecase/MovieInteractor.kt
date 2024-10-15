@@ -6,7 +6,7 @@ import com.example.flickscout.core.domain.repository.IMovieRepository
 import kotlinx.coroutines.flow.Flow
 
 class MovieInteractor(private val repository: IMovieRepository) :
-    com.example.flickscout.core.domain.usecase.MovieUseCase {
+    MovieUseCase {
     override suspend fun getMovies(): Flow<Resource<List<Movie>>> {
         return repository.getAllMovie()
     }

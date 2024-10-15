@@ -32,7 +32,7 @@ class DetailFragment : Fragment() {
             tvDetailDescription.text = movie.overview
             tvTitle.text = movie.title
             tvReleaseDate.text = movie.releaseDate
-            tvPopularity.text = movie.popularity.toString()
+            tvPopularity.text = String.format(movie.popularity.toString())
             fab.setOnClickListener {
                 var statusFavorite = movie.isFavorite
                 statusFavorite = !statusFavorite

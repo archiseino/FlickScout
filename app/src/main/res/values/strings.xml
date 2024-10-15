@@ -7,4 +7,6 @@
     <string name="favorite_menu">Favorite Menu</string>
     <string name="empty_favorites">You don\'t have any Favorites</string>
     <string name="title_favorite">favorite</string>
+    <string name="home">Home</string>
+    <string name="favorite">Favorite</string>
 </resources>

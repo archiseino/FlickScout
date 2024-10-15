@@ -3,7 +3,6 @@ package com.example.flickscout.core.data
 import com.example.flickscout.core.data.source.local.LocalDataSource
 import com.example.flickscout.core.data.source.remote.RemoteDataSource
 import com.example.flickscout.core.data.source.remote.network.ApiResponse
-import com.example.flickscout.core.data.source.remote.response.MoviesResponse
 import com.example.flickscout.core.data.source.remote.response.ResultsItem
 import com.example.flickscout.core.domain.model.Movie
 import com.example.flickscout.core.domain.repository.IMovieRepository

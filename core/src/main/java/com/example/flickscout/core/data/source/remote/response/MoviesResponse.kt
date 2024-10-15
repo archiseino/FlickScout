@@ -11,7 +11,7 @@ data class MoviesResponse(
 	val totalPages: Int,
 
     @field:SerializedName("results")
-	val results: List<com.example.flickscout.core.data.source.remote.response.ResultsItem>,
+	val results: List<ResultsItem>,
 
     @field:SerializedName("total_results")
 	val totalResults: Int

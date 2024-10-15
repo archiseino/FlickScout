@@ -5,8 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.collection.floatIntMapOf
-import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.example.flickscout.core.ui.MoviesAdapter
 import com.example.flickscout.favorite.di.favoriteModule
@@ -29,8 +27,8 @@ class FavoriteFragment : Fragment() {
         _binding = FragmentFavoriteBinding.inflate(inflater, container, false)
 
         val movieAdapter = MoviesAdapter { movie ->
-//            val action = FavoriteFragmentDirections.actionFavoriteFragmentToDetailFragment2(movie)
-//            findNavController().navigate(action)
+            val action = FavoriteFragmentDirections.actionFavoriteFragmentToDetailFavoriteFragment(movie)
+            findNavController().navigate(action)
         }
         binding.rvFavorite.adapter = movieAdapter
 
