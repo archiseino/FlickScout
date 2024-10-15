@@ -10,7 +10,9 @@ import androidx.navigation.fragment.navArgs
 import coil.load
 import com.example.flickscout.detail.DetailFragmentArgs
 import com.example.flickscout.favorite.databinding.FragmentDetailFavoriteBinding
+import com.example.flickscout.favorite.di.favoriteModule
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.context.loadKoinModules
 
 class DetailFavoriteFragment : Fragment() {
 
@@ -23,6 +25,8 @@ class DetailFavoriteFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        loadKoinModules(favoriteModule)
+
         _binding = FragmentDetailFavoriteBinding.inflate(inflater, container, false)
         val movie = args.movie
         setStatusFavorite(movie.isFavorite)

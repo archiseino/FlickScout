@@ -44,6 +44,13 @@
     @retrofit2.http.* <methods>;
 }
 
+-keep class com.example.flickscout.core.data.Resource { *; }
+-keep class com.example.flickscout.core.domain.model.Movie { *; }
+-keep class com.example.flickscout.core.domain.repository.IMovieRepository { *; }
+-keep class com.example.flickscout.core.domain.usecase.MovieUseCase { *; }
+-keep class com.example.flickscout.core.ui.MoviesAdapter { *; }
+-keep class com.example.flickscout.core.di.CoreModuleKt { *; }
+
 -keep class com.example.flickscout.core.data.source.remote.response.MoviesResponse { *; }
 -keep class com.example.flickscout.core.data.source.remote.response.ResultsItem { *; }
 
