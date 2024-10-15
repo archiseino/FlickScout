@@ -77,6 +77,7 @@
 -keep class com.bumptech.glide.** { *; }
 -keep interface com.bumptech.glide.** { *; }
 
+-keep class com.example.flickscout.** { *; }
 # Keep metadata for Coil's reflection usage
 -keepattributes Signature, InnerClasses, EnclosingMethod
 
