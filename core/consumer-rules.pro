@@ -44,20 +44,20 @@
     @retrofit2.http.* <methods>;
 }
 
--repackageclasses @interface androidx.annotation.Keep
--repackageclasses class <1>
--allowaccessmodification class <1>
--keep,allowobfuscation @interface androidx.annotation.Keep
--keep public class androidx.versionedparcelable.ParcelImpl
--keep class * implements androidx.versionedparcelable.VersionedParcelable
--keep,allowobfuscation,allowshrinking,allowoptimization class <1>
--keep,allowobfuscation,allowshrinking class retrofit2.Response
--keep,allowobfuscation interface <1>
--keep,allowobfuscation interface * extends <1>
--keep,allowobfuscation,allowshrinking,allowoptimization class <3>
--keep,allowobfuscation,allowshrinking class kotlin.coroutines.Continuation
--keep class * extends androidx.room.RoomDatabase
--keep,allowobfuscation,allowshrinking class * extends androidx.navigation.Navigator
+#-repackageclasses @interface androidx.annotation.Keep
+#-repackageclasses class <1>
+#-allowaccessmodification class <1>
+#-keep,allowobfuscation @interface androidx.annotation.Keep
+#-keep public class androidx.versionedparcelable.ParcelImpl
+#-keep class * implements androidx.versionedparcelable.VersionedParcelable
+#-keep,allowobfuscation,allowshrinking,allowoptimization class <1>
+#-keep,allowobfuscation,allowshrinking class retrofit2.Response
+#-keep,allowobfuscation interface <1>
+#-keep,allowobfuscation interface * extends <1>
+#-keep,allowobfuscation,allowshrinking,allowoptimization class <3>
+##-keep,allowobfuscation,allowshrinking class kotlin.coroutines.Continuation
+#-keep class * extends androidx.room.RoomDatabase
+#-keep,allowobfuscation,allowshrinking class * extends androidx.navigation.Navigator
 -keep class com.example.flickscout.core.data.Resource { *; }
 -keep class com.example.flickscout.core.domain.model.Movie { *; }
 -keep class com.example.flickscout.core.domain.repository.IMovieRepository { *; }
