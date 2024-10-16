@@ -19,3 +19,13 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+-dontwarn com.example.flickscout.core.data.Resource$Failure
+-dontwarn com.example.flickscout.core.data.Resource$Loading
+-dontwarn com.example.flickscout.core.data.Resource$Success
+-dontwarn com.example.flickscout.core.data.Resource
+-dontwarn com.example.flickscout.core.di.CoreModuleKt
+-dontwarn com.example.flickscout.core.domain.model.Movie
+-dontwarn com.example.flickscout.core.domain.repository.IMovieRepository
+-dontwarn com.example.flickscout.core.domain.usecase.MovieInteractor
+-dontwarn com.example.flickscout.core.domain.usecase.MovieUseCase
+-dontwarn com.example.flickscout.core.ui.MoviesAdapter
