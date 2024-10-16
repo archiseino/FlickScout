@@ -14,3 +14,4 @@ apiKey.properties
 .externalNativeBuild
 .cxx
 local.properties
+.flickscout-keystore.jks

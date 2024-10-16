@@ -19,6 +19,11 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+-dontwarn java.lang.invoke.StringConcatFactory
+
+-keep class com.example.flickscout.core.** { *; }
+-keepclassmembers class com.example.flickscout.core.** { *; }
+
 -dontwarn com.example.flickscout.core.data.Resource$Failure
 -dontwarn com.example.flickscout.core.data.Resource$Loading
 -dontwarn com.example.flickscout.core.data.Resource$Success
